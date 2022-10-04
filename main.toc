@@ -1,30 +1,30 @@
 \contentsline {section}{\numberline {1}기본 템플릿}{1}{}%
-\contentsline {section}{\numberline {2}주요 알고리즘}{2}{}%
-\contentsline {subsection}{\numberline {2.1}유니온 파인드}{2}{}%
+\contentsline {section}{\numberline {2}주요 알고리즘}{1}{}%
+\contentsline {subsection}{\numberline {2.1}유니온 파인드}{1}{}%
 \contentsline {subsection}{\numberline {2.2}다익스트라}{2}{}%
-\contentsline {subsection}{\numberline {2.3}DFS}{3}{}%
-\contentsline {subsection}{\numberline {2.4}BFS}{3}{}%
-\contentsline {subsection}{\numberline {2.5}선분 교차 판정}{4}{}%
-\contentsline {subsection}{\numberline {2.6}소수 리스트 생성}{4}{}%
-\contentsline {subsection}{\numberline {2.7}소수 판정 알고리즘}{5}{}%
-\contentsline {subsection}{\numberline {2.8}밀러-라빈 소수 판정}{5}{}%
-\contentsline {subsection}{\numberline {2.9}폴라드-로 소인수분해}{5}{}%
-\contentsline {section}{\numberline {3}수학}{6}{}%
-\contentsline {subsection}{\numberline {3.1}NTT}{6}{}%
-\contentsline {subsection}{\numberline {3.2}스프라그-그런디}{6}{}%
-\contentsline {subsection}{\numberline {3.3}유클리드 호제법}{7}{}%
-\contentsline {subsection}{\numberline {3.4}확장 유클리드}{7}{}%
-\contentsline {subsection}{\numberline {3.5}페르마 소정리}{7}{}%
-\contentsline {subsection}{\numberline {3.6}중국인의 나머지 정리}{7}{}%
-\contentsline {subsection}{\numberline {3.7}모듈러 곱셈 역원}{7}{}%
-\contentsline {subsection}{\numberline {3.8}좌표 압축}{7}{}%
-\contentsline {section}{\numberline {4}그래프}{8}{}%
-\contentsline {subsection}{\numberline {4.1}최대 유량}{8}{}%
-\contentsline {subsection}{\numberline {4.2}이분 매칭}{8}{}%
-\contentsline {section}{\numberline {5}트리}{9}{}%
-\contentsline {subsection}{\numberline {5.1}세그먼트 트리}{9}{}%
-\contentsline {subsection}{\numberline {5.2}펜윅 트리}{10}{}%
-\contentsline {subsection}{\numberline {5.3}2차원 펜윅 트리}{10}{}%
-\contentsline {section}{\numberline {6}테크닉}{11}{}%
-\contentsline {subsection}{\numberline {6.1}비트마스킹}{11}{}%
-\contentsline {subsection}{\numberline {6.2}이분탐색}{11}{}%
+\contentsline {subsection}{\numberline {2.3}DFS}{2}{}%
+\contentsline {subsection}{\numberline {2.4}BFS}{2}{}%
+\contentsline {subsection}{\numberline {2.5}선분 교차 판정}{3}{}%
+\contentsline {subsection}{\numberline {2.6}소수 리스트 생성}{3}{}%
+\contentsline {subsection}{\numberline {2.7}소수 판정 알고리즘}{4}{}%
+\contentsline {subsection}{\numberline {2.8}밀러-라빈 소수 판정}{4}{}%
+\contentsline {subsection}{\numberline {2.9}폴라드-로 소인수분해}{4}{}%
+\contentsline {section}{\numberline {3}수학}{5}{}%
+\contentsline {subsection}{\numberline {3.1}NTT}{5}{}%
+\contentsline {subsection}{\numberline {3.2}스프라그-그런디}{5}{}%
+\contentsline {subsection}{\numberline {3.3}유클리드 호제법}{5}{}%
+\contentsline {subsection}{\numberline {3.4}확장 유클리드}{5}{}%
+\contentsline {subsection}{\numberline {3.5}페르마 소정리}{5}{}%
+\contentsline {subsection}{\numberline {3.6}중국인의 나머지 정리}{5}{}%
+\contentsline {subsection}{\numberline {3.7}모듈러 곱셈 역원}{5}{}%
+\contentsline {subsection}{\numberline {3.8}좌표 압축}{6}{}%
+\contentsline {section}{\numberline {4}그래프}{6}{}%
+\contentsline {subsection}{\numberline {4.1}최대 유량}{6}{}%
+\contentsline {subsection}{\numberline {4.2}이분 매칭}{6}{}%
+\contentsline {section}{\numberline {5}트리}{7}{}%
+\contentsline {subsection}{\numberline {5.1}세그먼트 트리}{7}{}%
+\contentsline {subsection}{\numberline {5.2}펜윅 트리}{7}{}%
+\contentsline {subsection}{\numberline {5.3}2차원 펜윅 트리}{8}{}%
+\contentsline {section}{\numberline {6}테크닉}{8}{}%
+\contentsline {subsection}{\numberline {6.1}비트마스킹}{8}{}%
+\contentsline {subsection}{\numberline {6.2}이분탐색}{8}{}%
