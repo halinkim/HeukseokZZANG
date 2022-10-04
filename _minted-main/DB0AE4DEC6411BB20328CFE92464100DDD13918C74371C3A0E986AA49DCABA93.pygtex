@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{GCD}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{b}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{GCD}\PYG{p}{(}\PYG{n}{b}\PYG{p}{,}\PYG{n}{a}\PYG{o}{\PYGZpc{}}\PYG{n}{b}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

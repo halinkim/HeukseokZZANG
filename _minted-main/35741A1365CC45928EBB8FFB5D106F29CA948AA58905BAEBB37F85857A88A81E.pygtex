@@ -1,0 +1,40 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{INF} \PYG{o}{=} \PYG{l+m+mi}{10}\PYG{o}{**}\PYG{l+m+mi}{9}
+\PYG{c+c1}{\PYGZsh{} V = 10}
+\PYG{c+c1}{\PYGZsh{} capacity = [[1] * V for \PYGZus{} in range(V)]}
+\PYG{c+c1}{\PYGZsh{} flow = [[0] * V for \PYGZus{} in range(V)]}
+
+
+\PYG{n}{V} \PYG{o}{=} \PYG{l+m+mi}{4}
+\PYG{n}{capacity} \PYG{o}{=} \PYG{p}{[[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{],} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{],} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{],} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{]]}
+\PYG{n}{flow} \PYG{o}{=} \PYG{p}{[[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{]} \PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{)]}
+
+
+\PYG{k}{def} \PYG{n+nf}{networkFlow}\PYG{p}{(}\PYG{n}{source}\PYG{p}{,} \PYG{n}{sink}\PYG{p}{):}
+    \PYG{n}{totalFlow} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{while} \PYG{l+m+mi}{1}\PYG{p}{:}
+        \PYG{n}{parent} \PYG{o}{=} \PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{*} \PYG{n}{V}
+        \PYG{n}{q} \PYG{o}{=} \PYG{n}{deque}\PYG{p}{()}
+        \PYG{n}{parent}\PYG{p}{[}\PYG{n}{source}\PYG{p}{]} \PYG{o}{=} \PYG{n}{source}
+        \PYG{n}{q}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{source}\PYG{p}{)}
+        \PYG{k}{while} \PYG{n}{q} \PYG{o+ow}{and} \PYG{n}{parent}\PYG{p}{[}\PYG{n}{sink}\PYG{p}{]} \PYG{o}{==} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{:}
+            \PYG{n}{here} \PYG{o}{=} \PYG{n}{q}\PYG{o}{.}\PYG{n}{popleft}\PYG{p}{()}
+            \PYG{k}{for} \PYG{n}{there} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{V}\PYG{p}{):}
+                \PYG{k}{if} \PYG{n}{capacity}\PYG{p}{[}\PYG{n}{here}\PYG{p}{][}\PYG{n}{there}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{flow}\PYG{p}{[}\PYG{n}{here}\PYG{p}{][}\PYG{n}{there}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0} \PYG{o+ow}{and} \PYG{n}{parent}\PYG{p}{[}\PYG{n}{there}\PYG{p}{]} \PYG{o}{==} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{:}
+                    \PYG{n}{q}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{there}\PYG{p}{)}
+                    \PYG{n}{parent}\PYG{p}{[}\PYG{n}{there}\PYG{p}{]} \PYG{o}{=} \PYG{n}{here}
+        \PYG{k}{if} \PYG{n}{parent}\PYG{p}{[}\PYG{n}{sink}\PYG{p}{]} \PYG{o}{==} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{:}
+            \PYG{k}{break}
+        \PYG{n}{amount} \PYG{o}{=} \PYG{n}{INF}
+        \PYG{n}{p} \PYG{o}{=} \PYG{n}{sink}
+        \PYG{k}{while} \PYG{n}{p} \PYG{o}{!=} \PYG{n}{source}\PYG{p}{:}
+            \PYG{n}{amount} \PYG{o}{=} \PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{capacity}\PYG{p}{[}\PYG{n}{parent}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]][}\PYG{n}{p}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{flow}\PYG{p}{[}\PYG{n}{parent}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]][}\PYG{n}{p}\PYG{p}{],} \PYG{n}{amount}\PYG{p}{)}
+            \PYG{n}{p} \PYG{o}{=} \PYG{n}{parent}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]}
+        \PYG{n}{p} \PYG{o}{=} \PYG{n}{sink}
+        \PYG{k}{while} \PYG{n}{p} \PYG{o}{!=} \PYG{n}{source}\PYG{p}{:}
+            \PYG{n}{flow}\PYG{p}{[}\PYG{n}{parent}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]][}\PYG{n}{p}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{amount}
+            \PYG{n}{flow}\PYG{p}{[}\PYG{n}{p}\PYG{p}{][}\PYG{n}{parent}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]]} \PYG{o}{\PYGZhy{}=} \PYG{n}{amount}
+            \PYG{n}{p} \PYG{o}{=} \PYG{n}{parent}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]}
+        \PYG{n}{totalFlow} \PYG{o}{+=} \PYG{n}{amount}
+    \PYG{k}{return} \PYG{n}{totalFlow}
+\end{Verbatim}

@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
+\usepackage{kotex}
 
 \usepackage[a4paper, total={7in, 10in}]{geometry}
 \usepackage{lipsum}
@@ -15,24 +16,87 @@
 \author{HeukseokZZANG}
 \maketitle
 
-\lipsum
+\tableofcontents
 
-\section{Hello World!}
-\begin{minted}{c}
-	int main() {
-		printf("hello, world");
-		return 0;
-	}
-\end{minted}
+\section{기본 템플릿}
+\inputminted{cpp}{codes/basic.cpp}
 
-\section{Math in Source Code Comments}
-\begin{minted}[mathescape,gobble=2]{csharp}
-	/*
-	Defined as $\pi=\lim_{n\to\infty}\frac{P_n}{d}$ where $P$ is the perimeter
-	of an $n$-sided regular polygon circumscribing a
-	circle of diameter $d$.
-	*/
-	const double pi = 3.1415926535
-\end{minted}
+\section{주요 알고리즘}
+\subsection{유니온 파인드}
+\inputminted{cpp}{codes/unionfind.cpp}
+\subsection{다익스트라}
+\inputminted{cpp}{codes/dijkstra.cpp}
+\subsection{DFS}
+\inputminted{cpp}{codes/dfs.cpp}
+\subsection{BFS}
+\inputminted{cpp}{codes/bfs.cpp}
+\subsection{선분 교차 판정}
+\inputminted{cpp}{codes/linecross.cpp}
+\subsection{소수 리스트 생성}
+\inputminted{python}{codes/primelist.py}
+\subsection{소수 판정 알고리즘}
+\inputminted{python}{codes/primetest.py}
+\subsection{밀러-라빈 소수 판정}
+\inputminted{python}{codes/miller-rabin.py}
+\subsection{폴라드-로 소인수분해}
+\inputminted{python}{codes/pollard-rho.py}
+
+\section{수학}
+\subsection{NTT}
+\inputminted{python}{codes/ntt.py}
+\subsection{스프라그-그런디}
+\inputminted{python}{codes/nim.py}
+\subsection{유클리드 호제법}
+\inputminted{cpp}{codes/euclid.cpp}
+\subsection{확장 유클리드}
+\inputminted{python}{codes/eea.py}
+\subsection{페르마 소정리}
+
+\subsection{중국인의 나머지 정리}
+\subsection{모듈러 곱셈 역원}
+\inputminted{python}{codes/modular.py}
+\subsection{좌표 압축}
+\inputminted{python}{codes/comp.py}
+
+\section{그래프}
+\subsection{최대 유량}
+\inputminted{python}{codes/mf.py}
+\subsection{이분 매칭}
+\inputminted{python}{codes/bimatch.py}
+
+\section{트리}
+\subsection{세그먼트 트리}
+\inputminted{cpp}{codes/segtree.cpp}
+\subsection{펜윅 트리}
+\inputminted{python}{codes/fenwick.py}
+\subsection{2차원 펜윅 트리}
+\inputminted{python}{codes/fenwick2d.py}
+
+\section{테크닉}
+\subsection{비트마스킹}
+\subsection{이분탐색}
+\inputminted{python}{codes/bisect.py}
+
+
+
+%\lipsum
+%
+%\section{Hello World!}
+%\begin{minted}{c}
+%	int main() {
+%		printf("hello, world");
+%		return 0;
+%	}
+%\end{minted}
+%
+%\section{Math in Source Code Comments}
+%\begin{minted}[mathescape,gobble=2]{csharp}
+%	/*
+%	Defined as $\pi=\lim_{n\to\infty}\frac{P_n}{d}$ where $P$ is the perimeter
+%	of an $n$-sided regular polygon circumscribing a
+%	circle of diameter $d$.
+%	*/
+%	const double pi = 3.1415926535
+%\end{minted}
 	
 \end{document}

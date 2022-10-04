@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{math}
+\PYG{k}{def} \PYG{n+nf}{prime\PYGZus{}list}\PYG{p}{(}\PYG{n}{limit}\PYG{p}{):}
+    \PYG{k}{if} \PYG{n}{limit} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{3}\PYG{p}{:}
+        \PYG{k}{return} \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{k}{if} \PYG{n}{limit} \PYG{o}{==} \PYG{l+m+mi}{2} \PYG{k}{else} \PYG{p}{[]}
+    \PYG{n}{size} \PYG{o}{=} \PYG{p}{(}\PYG{n}{limit} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{3}\PYG{p}{)} \PYG{o}{//} \PYG{l+m+mi}{2}
+    \PYG{n}{is\PYGZus{}prime} \PYG{o}{=} \PYG{p}{[}\PYG{k+kc}{True}\PYG{p}{]} \PYG{o}{*} \PYG{p}{(}\PYG{n}{size} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{math}\PYG{o}{.}\PYG{n}{isqrt}\PYG{p}{(}\PYG{n}{limit} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{3}\PYG{p}{)} \PYG{o}{//} \PYG{l+m+mi}{2} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{k}{if} \PYG{n}{is\PYGZus{}prime}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]:}
+            \PYG{n}{p} \PYG{o}{=} \PYG{n}{i} \PYG{o}{+} \PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{3}
+            \PYG{n}{s} \PYG{o}{=} \PYG{n}{p} \PYG{o}{*} \PYG{p}{(}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{+} \PYG{n}{i}
+            \PYG{n}{is\PYGZus{}prime}\PYG{p}{[}\PYG{n}{s}\PYG{p}{::}\PYG{n}{p}\PYG{p}{]} \PYG{o}{=} \PYG{p}{[}\PYG{k+kc}{False}\PYG{p}{]} \PYG{o}{*} \PYG{p}{((}\PYG{n}{size} \PYG{o}{\PYGZhy{}} \PYG{n}{s}\PYG{p}{)} \PYG{o}{//} \PYG{n}{p} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}
+    \PYG{k}{return} \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{+} \PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{3} \PYG{k}{for} \PYG{n}{i}\PYG{p}{,} \PYG{n}{v} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n}{is\PYGZus{}prime}\PYG{p}{)} \PYG{k}{if} \PYG{n}{v}\PYG{p}{]}
+\end{Verbatim}

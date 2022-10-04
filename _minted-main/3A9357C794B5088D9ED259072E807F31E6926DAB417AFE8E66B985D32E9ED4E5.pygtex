@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} N이 sqrt(N) 이하의 소인수로 나누어떨어지는지 검사}
+\PYG{c+c1}{\PYGZsh{} primes = prime\PYGZus{}list(10000000) 으로 소수 리스트 생성 후 실행}
+\PYG{c+c1}{\PYGZsh{} 소수 리스트를 백만(10\PYGZca{}7)까지 생성한다면 약 (10\PYGZca{}14)까지 판별가능}
+\PYG{k}{def} \PYG{n+nf}{isprime}\PYG{p}{(}\PYG{n}{x}\PYG{p}{):}
+    \PYG{k}{if} \PYG{n}{x} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{:}
+        \PYG{k}{return} \PYG{k+kc}{False}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{primes}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n}{i} \PYG{o}{\PYGZgt{}} \PYG{n}{x} \PYG{o}{**} \PYG{l+m+mf}{.5}\PYG{p}{:}
+            \PYG{k}{break}
+        \PYG{k}{if} \PYG{n}{x} \PYG{o}{\PYGZpc{}} \PYG{n}{i} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+            \PYG{k}{return} \PYG{k+kc}{False}
+    \PYG{k}{return} \PYG{k+kc}{True}
+\end{Verbatim}

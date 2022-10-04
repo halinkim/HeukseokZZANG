@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} a, b의 gcd가 1일 때만 작동}
+\PYG{c+c1}{\PYGZsh{} ax + by = 1의 해를 리턴}
+\PYG{k}{def} \PYG{n+nf}{eea}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{):}
+    \PYG{n}{s0}\PYG{p}{,} \PYG{n}{s1}\PYG{p}{,} \PYG{n}{t0}\PYG{p}{,} \PYG{n}{t1} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}
+    \PYG{n}{r0}\PYG{p}{,} \PYG{n}{r1} \PYG{o}{=} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}
+    \PYG{n}{q1} \PYG{o}{=} \PYG{n}{r0} \PYG{o}{//} \PYG{n}{r1}
+    \PYG{k}{while} \PYG{l+m+mi}{1}\PYG{p}{:}
+        \PYG{n}{s0}\PYG{p}{,} \PYG{n}{s1}\PYG{p}{,} \PYG{n}{t0}\PYG{p}{,} \PYG{n}{t1} \PYG{o}{=} \PYG{n}{s1}\PYG{p}{,} \PYG{n}{s0} \PYG{o}{\PYGZhy{}} \PYG{n}{s1} \PYG{o}{*} \PYG{n}{q1}\PYG{p}{,} \PYG{n}{t1}\PYG{p}{,} \PYG{n}{t0} \PYG{o}{\PYGZhy{}} \PYG{n}{t1} \PYG{o}{*} \PYG{n}{q1}
+        \PYG{n}{r0}\PYG{p}{,} \PYG{n}{r1} \PYG{o}{=} \PYG{n}{r1}\PYG{p}{,} \PYG{n}{r0} \PYG{o}{\PYGZhy{}} \PYG{n}{r1} \PYG{o}{*} \PYG{n}{q1}
+        \PYG{k}{if} \PYG{n}{r1}\PYG{p}{:}
+            \PYG{n}{q1} \PYG{o}{=} \PYG{n}{r0} \PYG{o}{//} \PYG{n}{r1}
+        \PYG{k}{else}\PYG{p}{:}
+            \PYG{k}{return} \PYG{n}{s0}\PYG{p}{,} \PYG{n}{t0}
+\end{Verbatim}

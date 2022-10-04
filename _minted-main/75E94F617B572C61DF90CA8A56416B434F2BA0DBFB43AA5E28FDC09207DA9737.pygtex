@@ -1,0 +1,30 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{,}\PYG{n}{e}\PYG{p}{,}\PYG{n}{st}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//정점의 개수, 간선의 개수, 시작 위치 }
+
+\PYG{c+c1}{// \PYGZob{}비용, 정점 번호\PYGZcb{}}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{+w}{ }\PYG{n}{adj}\PYG{p}{[}\PYG{n}{MAX\PYGZus{}SIZE}\PYG{p}{];}\PYG{+w}{ }\PYG{c+c1}{//adj[i].push\PYGZus{}back(\PYGZob{}w,x\PYGZcb{}) 면 i\PYGZhy{}\PYGZgt{}x 이고 거리는 w }
+\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{INF}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mh}{0x3f3f3f3f}\PYG{p}{;}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{[}\PYG{n}{MAX\PYGZus{}SIZE}\PYG{p}{];}\PYG{+w}{ }\PYG{c+c1}{// 최단 거리 테이블}
+\PYG{+w}{  }\PYG{n}{fill}\PYG{p}{(}\PYG{n}{d}\PYG{p}{,}\PYG{n}{d}\PYG{o}{+}\PYG{n}{v}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{INF}\PYG{p}{);}
+\PYG{+w}{  }\PYG{k}{while}\PYG{p}{(}\PYG{n}{e}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{,}\PYG{n}{x}\PYG{p}{,}\PYG{n}{w}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{adj}\PYG{p}{[}\PYG{n}{u}\PYG{p}{].}\PYG{n}{push\PYGZus{}back}\PYG{p}{(\PYGZob{}}\PYG{n}{w}\PYG{p}{,}\PYG{n}{x}\PYG{p}{\PYGZcb{});}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{n}{priority\PYGZus{}queue}\PYG{o}{\PYGZlt{}}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{greater}\PYG{o}{\PYGZlt{}}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{pq}\PYG{p}{;}
+\PYG{+w}{  }\PYG{n}{d}\PYG{p}{[}\PYG{n}{st}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{  }\PYG{c+c1}{// 우선순위 큐에 (0, 시작점) 추가}
+\PYG{+w}{  }\PYG{n}{pq}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(\PYGZob{}}\PYG{n}{d}\PYG{p}{[}\PYG{n}{st}\PYG{p}{],}\PYG{n}{st}\PYG{p}{\PYGZcb{});}
+\PYG{+w}{  }\PYG{k}{while}\PYG{p}{(}\PYG{o}{!}\PYG{n}{pq}\PYG{p}{.}\PYG{n}{empty}\PYG{p}{())\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{cur}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{pq}\PYG{p}{.}\PYG{n}{top}\PYG{p}{();}\PYG{+w}{ }\PYG{n}{pq}\PYG{p}{.}\PYG{n}{pop}\PYG{p}{();}\PYG{+w}{ }\PYG{c+c1}{// \PYGZob{}비용, 정점 번호\PYGZcb{}    }
+\PYG{+w}{    }\PYG{c+c1}{// 거리가 d에 있는 값과 다를 경우 넘어감}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{d}\PYG{p}{[}\PYG{n}{cur}\PYG{p}{.}\PYG{n}{second}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{cur}\PYG{p}{.}\PYG{n}{first}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{continue}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k}{auto}\PYG{+w}{ }\PYG{n+nl}{nxt} \PYG{p}{:}\PYG{+w}{ }\PYG{n}{adj}\PYG{p}{[}\PYG{n}{cur}\PYG{p}{.}\PYG{n}{second}\PYG{p}{])\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//이웃하는 모든 노드들 = nxt에 대하여 반복 }
+\PYG{+w}{      }\PYG{k}{if}\PYG{p}{(}\PYG{n}{d}\PYG{p}{[}\PYG{n}{nxt}\PYG{p}{.}\PYG{n}{second}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{[}\PYG{n}{cur}\PYG{p}{.}\PYG{n}{second}\PYG{p}{]}\PYG{o}{+}\PYG{n}{nxt}\PYG{p}{.}\PYG{n}{X}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{continue}\PYG{p}{;}
+\PYG{+w}{      }\PYG{c+c1}{// cur를 거쳐가는 것이 더 작은 값을 가질 경우}
+\PYG{+w}{      }\PYG{c+c1}{// d[nxt.Y]을 갱신하고 우선순위 큐에 (거리, nxt.Y)를 추가}
+\PYG{+w}{      }\PYG{n}{d}\PYG{p}{[}\PYG{n}{nxt}\PYG{p}{.}\PYG{n}{second}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{[}\PYG{n}{cur}\PYG{p}{.}\PYG{n}{second}\PYG{p}{]}\PYG{o}{+}\PYG{n}{nxt}\PYG{p}{.}\PYG{n}{first}\PYG{p}{;}
+\PYG{+w}{      }\PYG{n}{pq}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(\PYGZob{}}\PYG{n}{d}\PYG{p}{[}\PYG{n}{nxt}\PYG{p}{.}\PYG{n}{second}\PYG{p}{],}\PYG{n}{nxt}\PYG{p}{.}\PYG{n}{second}\PYG{p}{\PYGZcb{});}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }
+\end{Verbatim}
