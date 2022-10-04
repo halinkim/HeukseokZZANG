@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+cm}{*}
+\PYG{c+cm}{efined as $\pi=\lim_{n\to\infty}\frac{P_n}{d}$ where $P$ is the perimeter}
+\PYG{c+cm}{f an $n$\PYGZhy{}sided regular polygon circumscribing a}
+\PYG{c+cm}{ircle of diameter $d$.}
+\PYG{c+cm}{/}
+\PYG{k}{onst} \PYG{k+kt}{double} \PYG{n}{pi} \PYG{p}{=} \PYG{l+m}{3.1415926535}
+\end{Verbatim}

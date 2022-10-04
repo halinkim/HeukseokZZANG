@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{lipsum}
+
+\usepackage{minted}
+
+\begin{document}
+	
+\title{2022 ACM-ICPC Teamnote}
+\author{HeukseokZZANG}
+\maketitle
+
+\lipsum
+
+\section{Hello World!}
+\begin{minted}{c}
+	int main() {
+		printf("hello, world");
+		return 0;
+	}
+\end{minted}
+
+\section{Math in Source Code Comments}
+\begin{minted}[mathescape,gobble=2]{csharp}
+	/*
+	Defined as $\pi=\lim_{n\to\infty}\frac{P_n}{d}$ where $P$ is the perimeter
+	of an $n$-sided regular polygon circumscribing a
+	circle of diameter $d$.
+	*/
+	const double pi = 3.1415926535
+\end{minted}
+	
+\end{document}
