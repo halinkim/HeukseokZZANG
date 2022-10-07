@@ -1,6 +1,6 @@
 \contentsline {section}{\numberline {1}기본 템플릿}{1}{}%
-\contentsline {section}{\numberline {2}주요 알고리즘}{1}{}%
-\contentsline {subsection}{\numberline {2.1}유니온 파인드}{1}{}%
+\contentsline {section}{\numberline {2}주요 알고리즘}{2}{}%
+\contentsline {subsection}{\numberline {2.1}유니온 파인드}{2}{}%
 \contentsline {subsection}{\numberline {2.2}다익스트라}{2}{}%
 \contentsline {subsection}{\numberline {2.3}DFS}{2}{}%
 \contentsline {subsection}{\numberline {2.4}BFS}{3}{}%
@@ -14,17 +14,18 @@
 \contentsline {subsection}{\numberline {3.2}스프라그-그런디}{5}{}%
 \contentsline {subsection}{\numberline {3.3}유클리드 호제법}{5}{}%
 \contentsline {subsection}{\numberline {3.4}확장 유클리드}{5}{}%
-\contentsline {subsection}{\numberline {3.5}페르마 소정리}{5}{}%
-\contentsline {subsection}{\numberline {3.6}중국인의 나머지 정리}{5}{}%
-\contentsline {subsection}{\numberline {3.7}모듈러 곱셈 역원}{5}{}%
-\contentsline {subsection}{\numberline {3.8}좌표 압축}{6}{}%
+\contentsline {subsection}{\numberline {3.5}중국인의 나머지 정리}{5}{}%
+\contentsline {subsection}{\numberline {3.6}모듈러 곱셈 역원}{6}{}%
+\contentsline {subsection}{\numberline {3.7}좌표 압축}{6}{}%
 \contentsline {section}{\numberline {4}그래프}{6}{}%
 \contentsline {subsection}{\numberline {4.1}최대 유량}{6}{}%
 \contentsline {subsection}{\numberline {4.2}이분 매칭}{6}{}%
 \contentsline {section}{\numberline {5}트리}{7}{}%
 \contentsline {subsection}{\numberline {5.1}세그먼트 트리}{7}{}%
-\contentsline {subsection}{\numberline {5.2}펜윅 트리}{8}{}%
-\contentsline {subsection}{\numberline {5.3}2차원 펜윅 트리}{8}{}%
-\contentsline {section}{\numberline {6}테크닉}{8}{}%
-\contentsline {subsection}{\numberline {6.1}비트마스킹}{8}{}%
-\contentsline {subsection}{\numberline {6.2}이분탐색}{8}{}%
+\contentsline {subsection}{\numberline {5.2}레이지 세그먼트 트리}{8}{}%
+\contentsline {subsection}{\numberline {5.3}펜윅 트리}{9}{}%
+\contentsline {subsection}{\numberline {5.4}2차원 펜윅 트리}{9}{}%
+\contentsline {subsection}{\numberline {5.5}레이지 펜윅 트리}{9}{}%
+\contentsline {section}{\numberline {6}테크닉}{11}{}%
+\contentsline {subsection}{\numberline {6.1}비트마스킹}{11}{}%
+\contentsline {subsection}{\numberline {6.2}이분탐색}{11}{}%
