@@ -1,0 +1,81 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{sys}
+
+\PYG{c+c1}{\PYGZsh{} sys.setrecursionlimit(10**6)}
+\PYG{c+c1}{\PYGZsh{} import decimal}
+
+\PYG{c+c1}{\PYGZsh{} import math}
+\PYG{c+c1}{\PYGZsh{} from collections import deque}
+\PYG{c+c1}{\PYGZsh{} import itertools}
+\PYG{c+c1}{\PYGZsh{} from collections import Counter}
+\PYG{c+c1}{\PYGZsh{} from queue import PriorityQueue}
+\PYG{c+c1}{\PYGZsh{} import heapq}
+\PYG{c+c1}{\PYGZsh{} import decimal}
+\PYG{c+c1}{\PYGZsh{} import random}
+\PYG{c+c1}{\PYGZsh{} from bisect import bisect\PYGZus{}left, bisect\PYGZus{}right}
+\PYG{c+c1}{\PYGZsh{} import fractions}
+
+\PYG{c+c1}{\PYGZsh{} import re}
+\PYG{c+c1}{\PYGZsh{} import datetime}
+
+\PYG{n+nb}{input} \PYG{o}{=} \PYG{n}{sys}\PYG{o}{.}\PYG{n}{stdin}\PYG{o}{.}\PYG{n}{readline}
+
+
+\PYG{k}{def} \PYG{n+nf}{multiinput}\PYG{p}{():}
+    \PYG{k}{return} \PYG{n+nb}{map}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{,} \PYG{n+nb}{input}\PYG{p}{()}\PYG{o}{.}\PYG{n}{split}\PYG{p}{())}
+
+\PYG{k}{class} \PYG{n+nc}{LazyFenwick}\PYG{p}{:}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{size}\PYG{p}{):}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{size} \PYG{o}{=} \PYG{n}{size}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{bit} \PYG{o}{=} \PYG{p}{[[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{*} \PYG{p}{(}\PYG{n}{size} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)]}
+
+    \PYG{k}{def} \PYG{n+nf}{update}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{bitType}\PYG{p}{,} \PYG{n}{idx}\PYG{p}{,} \PYG{n}{diff}\PYG{p}{):}
+        \PYG{k}{while} \PYG{n}{idx} \PYG{o}{\PYGZlt{}=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{size}\PYG{p}{:}
+            \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{bit}\PYG{p}{[}\PYG{n}{bitType}\PYG{p}{][}\PYG{n}{idx}\PYG{p}{]} \PYG{o}{+=} \PYG{n}{diff}
+            \PYG{n}{idx} \PYG{o}{+=} \PYG{n}{idx} \PYG{o}{\PYGZam{}} \PYG{o}{\PYGZhy{}}\PYG{n}{idx}
+
+    \PYG{k}{def} \PYG{n+nf}{rangeUpdate}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{diff}\PYG{p}{):}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{update}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{diff}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{update}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{b} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{diff}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{update}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{diff} \PYG{o}{*} \PYG{p}{(}\PYG{n}{a} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{))}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{update}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{b} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{diff} \PYG{o}{*} \PYG{n}{b}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{getBitValue}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{bitType}\PYG{p}{,} \PYG{n}{idx}\PYG{p}{):}
+        \PYG{n}{ans} \PYG{o}{=} \PYG{l+m+mi}{0}
+        \PYG{k}{while} \PYG{n}{idx} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}\PYG{p}{:}
+            \PYG{n}{ans} \PYG{o}{+=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{bit}\PYG{p}{[}\PYG{n}{bitType}\PYG{p}{][}\PYG{n}{idx}\PYG{p}{]}
+            \PYG{n}{idx} \PYG{o}{\PYGZhy{}=} \PYG{n}{idx} \PYG{o}{\PYGZam{}} \PYG{o}{\PYGZhy{}}\PYG{n}{idx}
+        \PYG{k}{return} \PYG{n}{ans}
+
+    \PYG{k}{def} \PYG{n+nf}{prefixSum}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{idx}\PYG{p}{):}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{getBitValue}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{idx}\PYG{p}{)} \PYG{o}{*} \PYG{n}{idx} \PYG{o}{\PYGZhy{}} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{getBitValue}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{idx}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{query}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{):}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{prefixSum}\PYG{p}{(}\PYG{n}{b}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{prefixSum}\PYG{p}{(}\PYG{n}{a} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{)}
+
+
+
+\PYG{c+c1}{\PYGZsh{} decimal.getcontext().prec = 1111}
+
+\PYG{k}{def} \PYG{n+nf}{main}\PYG{p}{(}\PYG{n}{tc}\PYG{p}{):}
+    \PYG{n}{n}\PYG{p}{,} \PYG{n}{m}\PYG{p}{,} \PYG{n}{k} \PYG{o}{=} \PYG{n}{multiinput}\PYG{p}{()}
+    \PYG{n}{s} \PYG{o}{=} \PYG{n}{LazyFenwick}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}
+    \PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{n} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{):}
+        \PYG{n}{i} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n+nb}{input}\PYG{p}{())}
+        \PYG{n}{s}\PYG{o}{.}\PYG{n}{rangeUpdate}\PYG{p}{(}\PYG{n}{\PYGZus{}}\PYG{p}{,} \PYG{n}{\PYGZus{}}\PYG{p}{,} \PYG{n}{i}\PYG{p}{)}
+    \PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{m} \PYG{o}{+} \PYG{n}{k}\PYG{p}{):}
+        \PYG{n}{a}\PYG{p}{,} \PYG{o}{*}\PYG{n}{q} \PYG{o}{=} \PYG{n}{multiinput}\PYG{p}{()}
+        \PYG{k}{if} \PYG{n}{a} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{:}
+            \PYG{n}{b}\PYG{p}{,} \PYG{n}{c}\PYG{p}{,} \PYG{n}{d} \PYG{o}{=} \PYG{n}{q}
+            \PYG{n}{s}\PYG{o}{.}\PYG{n}{rangeUpdate}\PYG{p}{(}\PYG{n}{b}\PYG{p}{,} \PYG{n}{c}\PYG{p}{,} \PYG{n}{d}\PYG{p}{)}
+        \PYG{k}{else}\PYG{p}{:}
+            \PYG{n}{b}\PYG{p}{,} \PYG{n}{c} \PYG{o}{=} \PYG{n}{q}
+            \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{s}\PYG{o}{.}\PYG{n}{query}\PYG{p}{(}\PYG{n}{b}\PYG{p}{,} \PYG{n}{c}\PYG{p}{))}
+
+
+
+
+\PYG{c+c1}{\PYGZsh{} for tc in range(int(input())):}
+\PYG{k}{for} \PYG{n}{tc} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{):}
+    \PYG{n}{main}\PYG{p}{(}\PYG{n}{tc}\PYG{p}{)}
+\end{Verbatim}
