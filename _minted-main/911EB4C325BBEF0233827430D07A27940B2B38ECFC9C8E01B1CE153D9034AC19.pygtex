@@ -1,0 +1,29 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}bits/stdc++.h\PYGZgt{}}
+\PYG{k}{using}\PYG{+w}{ }\PYG{k}{namespace}\PYG{+w}{ }\PYG{n+nn}{std}\PYG{p}{;}
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{n}{ll}\PYG{p}{;}
+
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{vInt}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{matInt}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vInt}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{pii}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{vPii}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{pii}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{matPii}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vPii}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{LL}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{vLL}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{LL}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{matLL}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vLL}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{pLL}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{n}{LL}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{LL}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{vPLL}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{pLL}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{vBool}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{bool}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{matBool}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{vBool}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{vStr}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{string}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{	}\PYG{n}{ios}\PYG{o}{::}\PYG{n}{sync\PYGZus{}with\PYGZus{}stdio}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{	}\PYG{n}{cin}\PYG{p}{.}\PYG{n}{tie}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{	}\PYG{n}{freopen}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}input.txt\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}r\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{stdin}\PYG{p}{);}
+\PYG{+w}{	}\PYG{n}{freopen}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}output.txt\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}w\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{stdout}\PYG{p}{);}
+\PYG{c+c1}{//	sys.stdin = open(\PYGZdq{}input.txt\PYGZdq{}, \PYGZdq{}r\PYGZdq{})}
+\PYG{c+c1}{//	sys.stdout = open(\PYGZdq{}output.txt\PYGZdq{}, \PYGZdq{}w\PYGZdq{})}
+
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
