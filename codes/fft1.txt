@@ -1,0 +1,139 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long lint;
+typedef pair<int, int> pi;
+
+static char _buffer[1 << 19];
+static int _currentChar = 0;
+static int _charsNumber = 0;
+
+static inline int _read() {
+	if (_charsNumber < 0) {
+		exit(1);
+	}
+	if (!_charsNumber || _currentChar == _charsNumber) {
+		_charsNumber = (int)fread(_buffer, sizeof(_buffer[0]), sizeof(_buffer), stdin);
+		_currentChar = 0;
+	}
+	if (_charsNumber <= 0) {
+		return -1;
+	}
+	return _buffer[_currentChar++];
+}
+
+static inline int _readInt() {
+	int c, x, s;
+	c = _read();
+	while (c <= 32) c = _read();
+	x = 0;
+	s = 1;
+	if (c == '-') {
+		s = -1;
+		c = _read();
+	}
+	while (c > 32) {
+		x *= 10;
+		x += c - '0';
+		c = _read();
+	}
+	if (s < 0) x = -x;
+	return x;
+}
+
+namespace fft{
+	typedef complex<double> base;
+	void fft(vector<base> &v, bool inv){
+		int n = v.size();
+		vector<base> w(n/2), aux(n);
+		for(int i=0; i<n/2; i++){
+			int k = i&-i;
+			if(i == k){
+				double ang = 2 * M_PI * i / n;
+				if(inv) ang *= -1;
+				w[i] = base(cos(ang), sin(ang));
+			}
+			else w[i] = w[i-k] * w[k];
+		}
+		for(int i=n/2; i; i>>=1){
+			aux = v;
+			for(int k=0; 2*k<n; k+=i){
+				for(int j=0; j<i; j++){
+					base a = aux[2*k + j], b = aux[2*k + j + i] * w[k];
+					v[k + j] = a + b;
+					v[k + j + n/2] = a - b;
+				}
+			}
+		}
+		if(inv){
+			for(int i=0; i<n; i++){
+				v[i] /= n;
+			}
+		}
+	}
+	vector<lint> multiply(vector<lint> &v, vector<lint> &w){
+		vector<base> fv(v.begin(), v.end()), fw(w.begin(), w.end());
+		int n = 1;
+		while(n < max(v.size(), w.size())) n <<= 1;
+		n <<= 1;
+		fv.resize(n);
+		fw.resize(n);
+		fft(fv, 0);
+		fft(fw, 0);
+		for(int i=0; i<n; i++) fv[i] *= fw[i];
+		fft(fv, 1);
+		vector<lint> ret(n);
+		for(int i=0; i<n; i++) ret[i] = round(fv[i].real());
+		return ret;
+	}
+	vector<lint> multiply(vector<lint> &v, vector<lint> &w, int b){
+	int n = 2; while(n < v.size() + w.size()) n <<= 1;
+	vector<base> v1(n), v2(n), r1(n), r2(n);
+	for(int i=0; i<v.size(); i++){
+		v1[i] = base(v[i] >> 15, v[i] & 32767);
+	}
+	for(int i=0; i<w.size(); i++){
+		v2[i] = base(w[i] >> 15, w[i] & 32767);
+	}
+	fft(v1, 0);
+	fft(v2, 0);
+	for(int i=0; i<n; i++){
+		int j = (i ? (n - i) : i);
+		base ans1 = (v1[i] + conj(v1[j])) * base(0.5, 0);
+		base ans2 = (v1[i] - conj(v1[j])) * base(0, -0.5);
+		base ans3 = (v2[i] + conj(v2[j])) * base(0.5, 0);
+		base ans4 = (v2[i] - conj(v2[j])) * base(0, -0.5);
+		r1[i] = (ans1 * ans3) + (ans1 * ans4) * base(0, 1);
+		r2[i] = (ans2 * ans3) + (ans2 * ans4) * base(0, 1);
+	}
+	fft(r1, 1);
+	fft(r2, 1);
+	vector<lint> ret(n);
+	for(int i=0; i<n; i++){
+		lint av = (lint)round(r1[i].real());
+		lint bv = (lint)round(r1[i].imag()) + (lint)round(r2[i].real());
+		lint cv = (lint)round(r2[i].imag());
+		ret[i] = (av << 30) + (bv << 15) + cv;
+	}
+	return ret;
+	}
+}
+
+int n, m;
+vector<lint> v, w;
+
+int main(){
+	n = _readInt();
+	m = _readInt();
+	for(int i=0; i<=n; i++){
+		v.push_back(_readInt());
+	}
+	for(int i=0; i<=m; i++){
+		w.push_back(_readInt());
+	}
+	auto poly = fft::multiply(v, w, 32768);
+	lint ret = 0;
+	for(int i=0; i<=n+m; i++){
+		ret ^= poly[i];
+	}
+	cout << ret;
+}
