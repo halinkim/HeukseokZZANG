@@ -1,0 +1,62 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{struct} \PYG{n+nc}{Matrix}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{n}{ll}\PYG{+w}{ }\PYG{n}{mat}\PYG{p}{[}\PYG{n}{MAX}\PYG{p}{][}\PYG{n}{MAX}\PYG{p}{];}
+
+\PYG{+w}{	}\PYG{n}{Matrix}\PYG{p}{()\PYGZob{}\PYGZcb{}}
+
+\PYG{+w}{	}\PYG{c+c1}{// This initialization is important.}
+\PYG{+w}{	}\PYG{c+c1}{// Input matrix should be initialized separately}
+
+\PYG{+w}{	}\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{sz}\PYG{p}{)}
+\PYG{+w}{	}\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{n}{ms}\PYG{p}{(}\PYG{n}{mat}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{		}\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{sz}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{mat}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{n}{aux}\PYG{p}{;}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{matMult}\PYG{p}{(}\PYG{n}{Matrix}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{m}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Matrix}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{m1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Matrix}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{m2}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{sz}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{n}{ms}\PYG{p}{(}\PYG{n}{m}\PYG{p}{.}\PYG{n}{mat}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{);}
+
+\PYG{+w}{	}\PYG{c+c1}{// This only works for square matrix}
+\PYG{+w}{	}
+\PYG{+w}{	}\PYG{n}{FOR}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{sz}\PYG{p}{)}
+\PYG{+w}{	}\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{n}{FOR}\PYG{p}{(}\PYG{n}{j}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{sz}\PYG{p}{)}
+\PYG{+w}{		}\PYG{p}{\PYGZob{}}
+\PYG{+w}{			}\PYG{n}{FOR}\PYG{p}{(}\PYG{n}{k}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{sz}\PYG{p}{)}
+\PYG{+w}{			}\PYG{p}{\PYGZob{}}
+\PYG{+w}{				}\PYG{n}{m}\PYG{p}{.}\PYG{n}{mat}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{k}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{n}{m}\PYG{p}{.}\PYG{n}{mat}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{k}\PYG{p}{]}\PYG{o}{+}\PYG{n}{m1}\PYG{p}{.}\PYG{n}{mat}
+\PYG{+w}{					}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]}\PYG{o}{*}\PYG{n}{m2}\PYG{p}{.}\PYG{n}{mat}\PYG{p}{[}\PYG{n}{j}\PYG{p}{][}\PYG{n}{k}\PYG{p}{])}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}\PYG{p}{;}
+\PYG{+w}{			}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{Matrix}\PYG{+w}{ }\PYG{n+nf}{expo}\PYG{p}{(}\PYG{n}{Matrix}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{M}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{sz}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{n}{Matrix}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{;}
+\PYG{+w}{	}\PYG{n}{ret}\PYG{p}{.}\PYG{n}{init}\PYG{p}{(}\PYG{n}{sz}\PYG{p}{);}
+
+\PYG{+w}{	}\PYG{k}{if}\PYG{p}{(}\PYG{n}{n}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k}{if}\PYG{p}{(}\PYG{n}{n}\PYG{o}{==}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{M}\PYG{p}{;}
+
+\PYG{+w}{	}\PYG{n}{Matrix}\PYG{+w}{ }\PYG{n}{P}\PYG{o}{=}\PYG{n}{M}\PYG{p}{;}
+
+\PYG{+w}{	}\PYG{k}{while}\PYG{p}{(}\PYG{n}{n}\PYG{o}{!=}\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{+w}{	}\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{k}{if}\PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZam{}}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{+w}{		}\PYG{p}{\PYGZob{}}
+\PYG{+w}{			}\PYG{n}{aux}\PYG{o}{=}\PYG{n}{ret}\PYG{p}{;}
+\PYG{+w}{			}\PYG{n}{matMult}\PYG{p}{(}\PYG{n}{ret}\PYG{p}{,}\PYG{n}{aux}\PYG{p}{,}\PYG{n}{P}\PYG{p}{,}\PYG{n}{sz}\PYG{p}{);}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{		}\PYG{n}{n}\PYG{o}{\PYGZgt{}\PYGZgt{}=}\PYG{l+m+mi}{1}\PYG{p}{;}
+
+\PYG{+w}{		}\PYG{n}{aux}\PYG{o}{=}\PYG{n}{P}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{matMult}\PYG{p}{(}\PYG{n}{P}\PYG{p}{,}\PYG{n}{aux}\PYG{p}{,}\PYG{n}{aux}\PYG{p}{,}\PYG{n}{sz}\PYG{p}{);}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{	}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

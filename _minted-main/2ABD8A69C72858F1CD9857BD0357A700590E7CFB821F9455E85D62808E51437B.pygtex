@@ -1,0 +1,54 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{MAX}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1000}\PYG{p}{;}
+
+\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{text}\PYG{p}{[}\PYG{n}{MAX}\PYG{p}{],}\PYG{+w}{ }\PYG{n}{patt}\PYG{p}{[}\PYG{n}{MAX}\PYG{p}{];}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{pi}\PYG{p}{[}\PYG{n}{MAX}\PYG{p}{],}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{m}\PYG{p}{;}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{Process}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{now}\PYG{o}{=}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{pi}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{m}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{while}\PYG{p}{(}\PYG{n}{now}\PYG{o}{!=}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{patt}\PYG{p}{[}\PYG{n}{now}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{!=}\PYG{n}{patt}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+\PYG{+w}{            }\PYG{n}{now}\PYG{o}{=}\PYG{n}{pi}\PYG{p}{[}\PYG{n}{now}\PYG{p}{];}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{patt}\PYG{p}{[}\PYG{n}{now}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{==}\PYG{n}{patt}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}\PYG{+w}{ }\PYG{n}{pi}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=++}\PYG{n}{now}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{else}\PYG{+w}{ }\PYG{n}{pi}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{n}{now}\PYG{o}{=}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{Search}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{now}\PYG{o}{=}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{n}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{while}\PYG{p}{(}\PYG{n}{now}\PYG{o}{!=}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{patt}\PYG{p}{[}\PYG{n}{now}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{!=}\PYG{n}{text}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+\PYG{+w}{            }\PYG{n}{now}\PYG{o}{=}\PYG{n}{pi}\PYG{p}{[}\PYG{n}{now}\PYG{p}{];}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{patt}\PYG{p}{[}\PYG{n}{now}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{==}\PYG{n}{text}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{now}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{else}\PYG{+w}{ }\PYG{n}{now}\PYG{o}{=}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{now}\PYG{o}{==}\PYG{n}{m}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{cout}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{l+s}{\PYGZdq{}match at \PYGZdq{}}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{i}\PYG{o}{\PYGZhy{}}\PYG{n}{now}\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{n}{endl}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{now}\PYG{o}{=}\PYG{n}{pi}\PYG{p}{[}\PYG{n}{now}\PYG{p}{];}\PYG{+w}{ }\PYG{c+c1}{// match again}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// ios\PYGZus{}base::sync\PYGZus{}with\PYGZus{}stdio(0);}
+\PYG{+w}{    }\PYG{c+c1}{// cin.tie(NULL); cout.tie(NULL);}
+\PYG{+w}{    }\PYG{c+c1}{// freopen(\PYGZdq{}in.txt\PYGZdq{},\PYGZdq{}r\PYGZdq{},stdin);}
+
+\PYG{+w}{    }\PYG{n}{cin}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{n}{text}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{n}{patt}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{n}{n}\PYG{o}{=}\PYG{n}{strlen}\PYG{p}{(}\PYG{n}{text}\PYG{p}{);}\PYG{+w}{ }\PYG{n}{m}\PYG{o}{=}\PYG{n}{strlen}\PYG{p}{(}\PYG{n}{patt}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{Process}\PYG{p}{();}
+\PYG{+w}{    }\PYG{n}{Search}\PYG{p}{();}
+\PYG{c+c1}{//    FOR(i, 0, m) cout \PYGZlt{}\PYGZlt{} pi[i] \PYGZlt{}\PYGZlt{} \PYGZdq{} \PYGZdq{}; cout \PYGZlt{}\PYGZlt{} endl;}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
